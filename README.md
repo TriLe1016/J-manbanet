@@ -38,55 +38,51 @@ J-manbanet/
 │   ├── model.py                # J-MambaNet architecture (DenseNet Stem, Bi-Mamba, Adaptive FiLM)
 │   ├── engine.py               # Training and validation loops with EMA updates
 │   └── utils.py                # Helper functions
-⚙️ Installation
-Clone the repository:
+```
+## ⚙️ Environment Setup
 
-Bash
+```bash
+# 1. Clone the repository
 git clone [https://github.com/TriLe1016/J-manbanet.git](https://github.com/TriLe1016/J-manbanet.git)
 cd J-manbanet
-Install dependencies:
 
-Bash
-# It is recommended to use a conda environment
+# 2. Create and activate a Conda environment
 conda create -n jmambanet python=3.9 -y
 conda activate jmambanet
 
-# Install PyTorch (adjust CUDA version as needed)
+# 3. Install PyTorch (Adjust CUDA version to match your hardware)
 pip install torch torchvision torchaudio --index-url [https://download.pytorch.org/whl/cu118](https://download.pytorch.org/whl/cu118)
 
-# Install mamba-ssm and other requirements
+# 4. Install State Space Model dependencies
 pip install mamba-ssm==1.1.0
+
+# 5. Install other requirements
 pip install -r requirements.txt 
-(Note: Please create a requirements.txt file in your repository containing other necessary libraries like scikit-learn, pandas, matplotlib, etc.)
-
-🚀 Usage
-1. Data Preparation
-Download the HAM10000 dataset from the official source.
-
-Organize the data and metadata (CSV) according to the paths specified in src/config.py.
-
-2. Training the Model
-To train the J-MambaNet model from scratch using the Joint-Training V-JEPA strategy:
-
-Bash
+```
+## 🚀 Usage
+```bash
+# 1. Training
+# Train the J-MambaNet model from scratch using the Joint-Training V-JEPA strategy
 python scripts/train.py
-3. Inference & Evaluation (Ensemble + TTA)
-To reproduce the best results (96.43% Accuracy) using the 5-fold ensemble and weighted Test-Time Augmentation (TTA):
 
-Bash
+# 2. Inference & Evaluation
+# Reproduce the best results using the 5-fold ensemble and weighted TTA strategy
 python scripts/run_ensemble_TTA.py
-4. Generate Reports
-To calculate detailed metrics (Precision, Recall, F1-Score per class) and visualize the confusion matrix:
 
-Bash
+# 3. Generate Reports
+# Calculate detailed metrics (Precision, Recall, F1) and visualize confusion matrix
 python scripts/print_report.py
-📜 Citation
-If you find this code or research helpful, please consider citing:
-
-Đoạn mã
+```
+## 📜 Citation
+```bash
 @article{jmambanet2026,
   title={J-MambaNet: Integrating Bidirectional State Space Models with Adaptive Fusion for Skin Lesion Classification},
   author={Anonymous Authors},
-  journal={Anonymous Journal},
+  journal={Biomedical Signal Processing and Control (BSPC)},
   year={2026}
 }
+```
+## 🤝 Contact
+Author: Le Minh Tri
+Email: trileefaker@gmail.com
+GitHub: [@TriLe1016](https://github.com/TriLe1016)
