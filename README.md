@@ -38,3 +38,55 @@ J-manbanet/
 │   ├── model.py                # J-MambaNet architecture (DenseNet Stem, Bi-Mamba, Adaptive FiLM)
 │   ├── engine.py               # Training and validation loops with EMA updates
 │   └── utils.py                # Helper functions
+⚙️ Installation
+Clone the repository:
+
+Bash
+git clone [https://github.com/TriLe1016/J-manbanet.git](https://github.com/TriLe1016/J-manbanet.git)
+cd J-manbanet
+Install dependencies:
+
+Bash
+# It is recommended to use a conda environment
+conda create -n jmambanet python=3.9 -y
+conda activate jmambanet
+
+# Install PyTorch (adjust CUDA version as needed)
+pip install torch torchvision torchaudio --index-url [https://download.pytorch.org/whl/cu118](https://download.pytorch.org/whl/cu118)
+
+# Install mamba-ssm and other requirements
+pip install mamba-ssm==1.1.0
+pip install -r requirements.txt 
+(Note: Please create a requirements.txt file in your repository containing other necessary libraries like scikit-learn, pandas, matplotlib, etc.)
+
+🚀 Usage
+1. Data Preparation
+Download the HAM10000 dataset from the official source.
+
+Organize the data and metadata (CSV) according to the paths specified in src/config.py.
+
+2. Training the Model
+To train the J-MambaNet model from scratch using the Joint-Training V-JEPA strategy:
+
+Bash
+python scripts/train.py
+3. Inference & Evaluation (Ensemble + TTA)
+To reproduce the best results (96.43% Accuracy) using the 5-fold ensemble and weighted Test-Time Augmentation (TTA):
+
+Bash
+python scripts/run_ensemble_TTA.py
+4. Generate Reports
+To calculate detailed metrics (Precision, Recall, F1-Score per class) and visualize the confusion matrix:
+
+Bash
+python scripts/print_report.py
+📜 Citation
+If you find this code or research helpful, please consider citing:
+
+Đoạn mã
+@article{jmambanet2026,
+  title={J-MambaNet: Integrating Bidirectional State Space Models with Adaptive Fusion for Skin Lesion Classification},
+  author={Anonymous Authors},
+  journal={Anonymous Journal},
+  year={2026}
+}
